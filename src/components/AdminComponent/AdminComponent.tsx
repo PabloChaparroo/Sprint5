@@ -83,10 +83,11 @@ const handleUpdate = async (id: number) => {
   return (
     <>
    
-      {/*<h2>Bienvenido administrador </h2>*/}
+  
 
       {/* Botones */}
       <Button onClick={handleAdd}>Añadir</Button>
+
 
       {/* Aquí puedes renderizar una tabla con las unidades de medida */}
       <Table striped bordered hover>
@@ -95,18 +96,18 @@ const handleUpdate = async (id: number) => {
             <th>ID</th>
             <th>Nombre</th>
             <th>Abreviatura</th>
-            <th>Fecha actual</th>
-            <th>Acciones</th>
-            {/* Otras columnas según tus necesidades */}
+            <th>Fecha</th>
+            <th>Acción</th>
+         
           </tr>
         </thead>
         <tbody>
           {unidadMedida.map((unidad) => (
             <tr key={unidad.id}>
               <td>{unidad.id}</td>
-              <td>{unidad.nombreUnidadMedida}</td>
-              <td>{unidad.abreviaturaUnidadMedida}</td>
-              <td>{unidad.fechaAltaUnidadMedida}</td>
+              <td>{unidad.denominacion}</td>
+              <td>{unidad.abreviatura}</td>
+              <td>{unidad.fechaAlta}</td>
               <td>
                 {/* Botones de acciones */}
                 <Button onClick={() => handleUpdate(unidad.id)}  className="btn btn-warning" style={{ display: 'inline-block', marginRight: '10px' }}>Modificar</Button>

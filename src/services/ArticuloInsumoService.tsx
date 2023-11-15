@@ -10,7 +10,7 @@ export const ArticuloInsumoService = {
        
         const response = await fetch(`${BASE_URL}/api/v1/articuloInsumos/paged`);
         const data = await response.json();
-        return data;
+        return data.contect;
     },
 
     

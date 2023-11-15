@@ -11,12 +11,9 @@ const HomePage = () => {
   return (
     <>  
         
-        <CategoriasSelector/>
-        <CarouselInicio/>
-        <ProductList/>
-        {/*<AboutUs/>*/}
-        
 
+        <CarouselInicio/>
+      
     </>
   )
 }

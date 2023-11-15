@@ -7,7 +7,7 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
 import Login from "../pages/login/Login";
 
-import ShowProfilePage from "../pages/showProfilePage/showProfilePage";
+//import ShowProfilePage from "../pages/showProfilePage/showProfilePage";
 
 
 const PrivateRoute = React.lazy(() => import ('./PrivateRoute'));
@@ -33,7 +33,7 @@ const AppRoutes = () => {
           <Route path="/detallePedido" element={<DetallePedidoPage />} />
 
 
-          <Route path="/showProfile" element={<ShowProfilePage/>}/>
+          {/*<Route path="/showProfile" element={<ShowProfilePage/>}/>*/}
         </Routes>
   
  

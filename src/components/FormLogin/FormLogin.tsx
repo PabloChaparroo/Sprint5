@@ -34,7 +34,6 @@ const FormLogin: React.FC = () => {
         toast.success('Inicio de sesión exitoso');
       } catch (error) {
         console.error("Error al iniciar sesión:");
-        // Puedes mostrar un mensaje de error al usuario o realizar otras acciones según tus necesidades.
       }
     },
   });
@@ -43,10 +42,10 @@ const FormLogin: React.FC = () => {
     <>
       <Container
         className="d-flex align-items-center justify-content-center"
-        style={{ minHeight: "100vh" }}
+        style={{ minHeight: "70vh" }}
       >
-        <Form onSubmit={formik.handleSubmit} className="w-50 p-4 border">
-          {/* ----- username ----- */}
+        <Form onSubmit={formik.handleSubmit} className="w-80 p-4 border">
+       
           <div className="mb-3 mt-1">
             <label htmlFor="username" className="form-label" style={{ color: 'White' }}>
               Usuario
@@ -66,7 +65,7 @@ const FormLogin: React.FC = () => {
             ) : null}
           </div>
 
-          {/* ----- password ----- */}
+      
           <div className="mb-3 mt-1">
             <label htmlFor="password" className="form-label" style={{ color: 'White' }}>
               Contraseña

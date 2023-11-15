@@ -47,7 +47,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link onClick={() => navigate("/")} style={{ color: 'white' }}>Inicio</Nav.Link >
+              <Nav.Link onClick={() => navigate("/")} style={{ color: 'white' }}>Pagina Principal</Nav.Link >
               
           
 
@@ -56,7 +56,7 @@ const Header = () => {
                 <Nav.Link onClick={onShowProfile}>ShowProfile</Nav.Link>
               )}
 
-              <Nav.Link onClick={() => navigate("/admin")} style={{ color: 'white' }}>Admin</Nav.Link>
+              <Nav.Link onClick={() => navigate("/admin")} style={{ color: 'white' }}>Administrador</Nav.Link>
 
               {/* Botón de Log Out */}
               {localStorage.getItem("token") && (
