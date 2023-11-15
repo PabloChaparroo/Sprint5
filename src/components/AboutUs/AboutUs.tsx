@@ -12,14 +12,20 @@ const AboutUs = () => {
         alignItems: 'start'
     };
 
+    const neonEffectStyle = {
+        color: 'white',
+        textShadow: '0 0 10px white, 0 0 30px white',
+        textDecoration: 'none',
+    };
+
     return (
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-md-auto text-light text-center">
                     <br/>
                     <br/>      
-                    <h2> EL BUEN SABOR</h2>
-                    <p> COMIDA DE OTRA GALAXIA </p>
+                    <h2 style={neonEffectStyle}> EL BUEN SABOR</h2>
+                    <p style={neonEffectStyle}> COMIDA DE OTRA GALAXIA </p>
                     <br/>
                     <br/>
                 </div>
