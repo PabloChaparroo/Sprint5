@@ -1,4 +1,3 @@
-import { CarritoProvider } from "./components/CarritoProvider/CarritoProvider";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import './App.css';
@@ -12,13 +11,12 @@ import Loader from "./components/Loader/Loader";
 const App = () => {
   return (
     <Router>
-      <CarritoProvider>
+     
         <Header />
         
-           
         <AppRoutes />
         <Footer />
-      </CarritoProvider>
+   
     </Router>
   );
 };
