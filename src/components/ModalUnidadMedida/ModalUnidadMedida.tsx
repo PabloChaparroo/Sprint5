@@ -48,7 +48,7 @@ const ModalUnidadMedida: React.FC<UnidadMedidaModalProps> = ({showModal,handleCl
   return (
   
     <Modal show={showModal} onHide={handleClose}>
-      <Modal.Header closeButton>
+      <Modal.Header closeButton  style={{ backgroundColor: 'lightblue', color: 'blue', fontSize: '20px', borderBottom: '1px solid blue' }}>
         <Modal.Title>Unidad de Medida</Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -72,8 +72,12 @@ const ModalUnidadMedida: React.FC<UnidadMedidaModalProps> = ({showModal,handleCl
                     value={formik.values.denominacion}
                     onChange={formik.handleChange}
                     isInvalid={formik.touched.denominacion && !!formik.errors.denominacion}
-                  />
-                  <Form.Control.Feedback type="invalid">{formik.errors.denominacion}</Form.Control.Feedback>
+                    style={{ borderRadius: "5px", borderColor: "#007bff" }}
+                    
+                 />
+                  <Form.Control.Feedback type="invalid"
+                  style={{ color: 'red', fontSize: '14px' }}
+                  >{formik.errors.denominacion}</Form.Control.Feedback>
                 </td>
                 <td>
                   <Form.Control
@@ -82,6 +86,8 @@ const ModalUnidadMedida: React.FC<UnidadMedidaModalProps> = ({showModal,handleCl
                     value={formik.values.abreviatura}
                     onChange={formik.handleChange}
                     isInvalid={formik.touched.abreviatura && !!formik.errors.abreviatura}
+                    style={{ borderRadius: "5px", borderColor: "#007bff" }}
+                    
                   />
                   <Form.Control.Feedback type="invalid">{formik.errors.abreviatura}</Form.Control.Feedback>
                 </td>
@@ -92,6 +98,8 @@ const ModalUnidadMedida: React.FC<UnidadMedidaModalProps> = ({showModal,handleCl
                     value={formik.values.fechaAlta}
                     onChange={formik.handleChange}
                     isInvalid={formik.touched.fechaAlta && !!formik.errors.fechaAlta}
+                    style={{ borderRadius: "5px", borderColor: "#007bff" }}
+                    
                   />
                   <Form.Control.Feedback type="invalid">{formik.errors.fechaAlta}</Form.Control.Feedback>
                 </td>
@@ -102,6 +110,8 @@ const ModalUnidadMedida: React.FC<UnidadMedidaModalProps> = ({showModal,handleCl
                     value={formik.values.fechaBaja}
                     onChange={formik.handleChange}
                     isInvalid={formik.touched.fechaBaja && !!formik.errors.fechaBaja}
+                    style={{ borderRadius: "5px", borderColor: "#007bff" }}
+                    
                   />
                   <Form.Control.Feedback type="invalid">{formik.errors.fechaBaja}</Form.Control.Feedback>
                 </td>
@@ -112,10 +122,11 @@ const ModalUnidadMedida: React.FC<UnidadMedidaModalProps> = ({showModal,handleCl
                     value={formik.values.fechaModificacion}
                     onChange={formik.handleChange}
                     isInvalid={
-                      formik.touched.fechaModificacion && !!formik.errors.fechaModificacion
-                    }
+                      formik.touched.fechaModificacion && !!formik.errors.fechaModificacion}
+                      style={{ borderRadius: "5px", borderColor: "#007bff" }}
+                      
                   />
-                  <Form.Control.Feedback type="invalid">
+                  <Form.Control.Feedback type="invalid" style={{ color: 'red', fontSize: '14px' }}>
                     {formik.errors.fechaModificacion}
                   </Form.Control.Feedback>
                 </td>
