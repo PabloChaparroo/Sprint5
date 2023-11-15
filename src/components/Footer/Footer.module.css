@@ -1,0 +1,13 @@
+/* Footer.module.css */
+
+.footer {
+    background-image: url("../../../public/images/v59_2113.png");
+    background-size: 75% 100%; /* Ajusta según tus preferencias */
+    background-position: center;
+    height: 320px;
+    color: white; /* Color del texto en general */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto */
+  
+  }
+  
+ 

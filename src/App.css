@@ -1,0 +1,12 @@
+body {
+    margin: 0;  /* Asegura que no haya márgenes en el cuerpo */
+    padding: 0; /* Asegura que no haya relleno en el cuerpo */
+    background-image: url(../public/images/desktop-wallpaper-contemporary-black-dark-modern.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh; /* Ajusta la altura al 100% del viewport */
+    display: flex;
+    flex-direction: column;
+  }
+  
