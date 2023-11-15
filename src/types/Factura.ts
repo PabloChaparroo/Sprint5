@@ -6,7 +6,6 @@ export interface Factura {
     
     //Relaciones
     formaPago: FormaPago;
-    tipoFactura: TipoFactura;
     pedido: Pedido;
     detalleFacturaList: DetalleFactura[];
 }

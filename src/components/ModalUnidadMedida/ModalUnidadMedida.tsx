@@ -1,10 +1,8 @@
 import { Button, Form, Modal, Table } from "react-bootstrap";
 
-//Dependencias para validar los formularios
 import * as Yup from "yup";
 import { useFormik } from "formik";
 
-//Notificaciones al usuario
 import { UnidadMedida } from "../../types/UnidadMedida";
 
 
@@ -13,28 +11,28 @@ type UnidadMedidaModalProps = {
     showModal: boolean;
     handleClose: () => void;
     createUnidadMedida: (unidadMedida: UnidadMedida) => void;
-    unidadMedida: UnidadMedida[]; // Agrega la prop unidadMedida
+    unidadMedida: UnidadMedida[];
   };
 
 const ModalUnidadMedida: React.FC<UnidadMedidaModalProps> = ({showModal,handleClose,createUnidadMedida}) => {
 
     const validationSchema = Yup.object({
         id: Yup.number().required('Este campo es obligatorio'),
-        nombreUnidadMedida: Yup.string().required('Este campo es obligatorio'),
-        abreviaturaUnidadMedida: Yup.string().required('Este campo es obligatorio'),
-        fechaAltaUnidadMedida: Yup.string().nullable().required('Este campo es obligatorio'),
-        fechaBajaUnidadMedida: Yup.string().nullable().required('Este campo es obligatorio'),
-        fechaModificacionUnidadMedida: Yup.string().nullable().required('Este campo es obligatorio'),        
+        denominacion: Yup.string().required('Este campo es obligatorio'),
+        abreviatura: Yup.string().required('Este campo es obligatorio'),
+        fechaAlta: Yup.string().nullable().required('Este campo es obligatorio'),
+        fechaBaja: Yup.string().nullable().required('Este campo es obligatorio'),
+        fechaModificacion: Yup.string().nullable().required('Este campo es obligatorio'),        
     });
     
     const formik = useFormik({
         initialValues: {
             id: 0,
-            nombreUnidadMedida: '',
-            abreviaturaUnidadMedida: '',
-            fechaAltaUnidadMedida: '',
-            fechaBajaUnidadMedida: '',
-            fechaModificacionUnidadMedida: '',
+            denominacion: '',
+            abreviatura: '',
+            fechaAlta: '',
+            fechaBaja: '',
+            fechaModificacion: '',
         },
 
         validationSchema: validationSchema,
@@ -51,14 +49,14 @@ const ModalUnidadMedida: React.FC<UnidadMedidaModalProps> = ({showModal,handleCl
   
     <Modal show={showModal} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Agregar Unidad de Medida</Modal.Title>
+        <Modal.Title>Unidad de Medida</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={formik.handleSubmit}>
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>Nombre</th>
+                <th>Denominacion</th>
                 <th>Abreviatura</th>
                 <th>Fecha Alta</th>
                 <th>Fecha Baja</th>
@@ -70,55 +68,55 @@ const ModalUnidadMedida: React.FC<UnidadMedidaModalProps> = ({showModal,handleCl
                 <td>
                   <Form.Control
                     type="text"
-                    name="nombreUnidadMedida"
-                    value={formik.values.nombreUnidadMedida}
+                    name="denominacion"
+                    value={formik.values.denominacion}
                     onChange={formik.handleChange}
-                    isInvalid={formik.touched.nombreUnidadMedida && !!formik.errors.nombreUnidadMedida}
+                    isInvalid={formik.touched.denominacion && !!formik.errors.denominacion}
                   />
-                  <Form.Control.Feedback type="invalid">{formik.errors.nombreUnidadMedida}</Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">{formik.errors.denominacion}</Form.Control.Feedback>
                 </td>
                 <td>
                   <Form.Control
                     type="text"
-                    name="abreviaturaUnidadMedida"
-                    value={formik.values.abreviaturaUnidadMedida}
+                    name="abreviatura"
+                    value={formik.values.abreviatura}
                     onChange={formik.handleChange}
-                    isInvalid={formik.touched.abreviaturaUnidadMedida && !!formik.errors.abreviaturaUnidadMedida}
+                    isInvalid={formik.touched.abreviatura && !!formik.errors.abreviatura}
                   />
-                  <Form.Control.Feedback type="invalid">{formik.errors.abreviaturaUnidadMedida}</Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">{formik.errors.abreviatura}</Form.Control.Feedback>
                 </td>
                 <td>
                   <Form.Control
                     type="text"
-                    name="fechaAltaUnidadMedida"
-                    value={formik.values.fechaAltaUnidadMedida}
+                    name="fechaAlta"
+                    value={formik.values.fechaAlta}
                     onChange={formik.handleChange}
-                    isInvalid={formik.touched.fechaAltaUnidadMedida && !!formik.errors.fechaAltaUnidadMedida}
+                    isInvalid={formik.touched.fechaAlta && !!formik.errors.fechaAlta}
                   />
-                  <Form.Control.Feedback type="invalid">{formik.errors.fechaAltaUnidadMedida}</Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">{formik.errors.fechaAlta}</Form.Control.Feedback>
                 </td>
                 <td>
                   <Form.Control
                     type="text"
-                    name="fechaBajaUnidadMedida"
-                    value={formik.values.fechaBajaUnidadMedida}
+                    name="fechaBaja"
+                    value={formik.values.fechaBaja}
                     onChange={formik.handleChange}
-                    isInvalid={formik.touched.fechaBajaUnidadMedida && !!formik.errors.fechaBajaUnidadMedida}
+                    isInvalid={formik.touched.fechaBaja && !!formik.errors.fechaBaja}
                   />
-                  <Form.Control.Feedback type="invalid">{formik.errors.fechaBajaUnidadMedida}</Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">{formik.errors.fechaBaja}</Form.Control.Feedback>
                 </td>
                 <td>
                   <Form.Control
                     type="text"
-                    name="fechaModificacionUnidadMedida"
-                    value={formik.values.fechaModificacionUnidadMedida}
+                    name="fechaModificacion"
+                    value={formik.values.fechaModificacion}
                     onChange={formik.handleChange}
                     isInvalid={
-                      formik.touched.fechaModificacionUnidadMedida && !!formik.errors.fechaModificacionUnidadMedida
+                      formik.touched.fechaModificacion && !!formik.errors.fechaModificacion
                     }
                   />
                   <Form.Control.Feedback type="invalid">
-                    {formik.errors.fechaModificacionUnidadMedida}
+                    {formik.errors.fechaModificacion}
                   </Form.Control.Feedback>
                 </td>
               </tr>

@@ -1,7 +1,7 @@
 import { UnidadMedida } from "../types/UnidadMedida";
 
 
-const BASE_URL = 'https://elbuensabor-v1.onrender.com';
+const BASE_URL = 'http://localhost:8080';
 
 export const UnidadMedidaService = {
 
