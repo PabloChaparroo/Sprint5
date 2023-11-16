@@ -1,20 +1,22 @@
 import { Button, Form, Modal, Table } from "react-bootstrap";
-
 import * as Yup from "yup";
 import { useFormik } from "formik";
 
 import { UnidadMedida } from "../../types/UnidadMedida";
+import handleUpdate from "../../components/AdminComponent/AdminComponent";
 
 
 //Recibe parametros como props para que se renderice, su titulo y según qué operación queremos realizar.
 type UnidadMedidaModalProps = {
+    unidadId: number;
+    unidad: any;
     showModal: boolean;
     handleClose: () => void;
     createUnidadMedida: (unidadMedida: UnidadMedida) => void;
     unidadMedida: UnidadMedida[];
   };
 
-const ModalUnidadMedida: React.FC<UnidadMedidaModalProps> = ({showModal,handleClose,createUnidadMedida}) => {
+const ModalUnidadMedida: React.FC<UnidadMedidaModalProps> = ({unidadId, unidadMedida, showModal,handleClose,createUnidadMedida}) => {
 
     const validationSchema = Yup.object({
         id: Yup.number().required('Este campo es obligatorio'),
@@ -133,7 +135,7 @@ const ModalUnidadMedida: React.FC<UnidadMedidaModalProps> = ({showModal,handleCl
               </tr>
             </tbody>
           </Table>
-          <Button type="submit">Agregar</Button>
+          <Button onClick= {() => handleUpdate} type="submit">Guardar</Button>
         </Form>
       </Modal.Body>
     </Modal>

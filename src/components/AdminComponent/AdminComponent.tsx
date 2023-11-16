@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Table, Button } from "react-bootstrap";
+import { Table, Button, Modal } from "react-bootstrap";
 import { UnidadMedida } from "../../types/UnidadMedida";
 import { UnidadMedidaService } from "../../services/UnidadMedidaService";
 import ModalUnidadMedida from "../ModalUnidadMedida/ModalUnidadMedida";
@@ -12,7 +12,7 @@ const AdminComponent: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedUnidadId, setSelectedUnidadId] = useState<number | null>(null);
 
-  // ------- Traer todas las unidades de medida -------
+  //  Traer todas las unidades de medida
   useEffect(() => {
     const fetchUnidadMedida = async () => {
       try {
@@ -27,16 +27,17 @@ const AdminComponent: React.FC = () => {
     fetchUnidadMedida();
   }, []);
 
-  // ------- Mostrar el modal -------
+  // Mostrar el modal 
   const handleAdd = () => {
     setShowModal(true);
   };
 
-  // ------- Modificar una unidad de medida -------
-const handleUpdate = async (id: number) => {
+  // Modificar una unidad de medida
+const handleUpdate = async (id: number, unidadMedida : UnidadMedida) => {
   try {
     // Obtiene los detalles de la unidad de medida por ID
-    const unidadMedidaUpdate = await UnidadMedidaService.getUnidadMedida(id);
+    //const unidadMedidaUpdate = await UnidadMedidaService.getUnidadMedida(id);
+    const unidadMedidaUpdate = await UnidadMedidaService.updateUnidadMedida(id, unidadMedida);
     
     // Establece los detalles en el estado del modal
     // (asegúrate de tener un estado en ModalUnidadMedida para almacenar los detalles)
@@ -44,8 +45,11 @@ const handleUpdate = async (id: number) => {
 
     // Abre el modal
     setShowModal(true);
+    
+  
+
   } catch (error) {
-    console.error("Error al obtener detalles de la unidad de medida", error);
+    console.error("Error intente más tarde", error);
   }
 };
 
@@ -78,6 +82,7 @@ const handleUpdate = async (id: number) => {
     } catch (error) {
       console.error("Error al crear nueva unidad de medida", error);
     }
+
   };
 
   return (
@@ -93,8 +98,8 @@ const handleUpdate = async (id: number) => {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Nombre</th>
+            <th>Numero ID</th>
+            <th>Denominación</th>
             <th>Abreviatura</th>
             <th>Fecha</th>
             <th>Acción</th>
@@ -110,7 +115,7 @@ const handleUpdate = async (id: number) => {
               <td>{unidad.fechaAlta}</td>
               <td>
                 {/* Botones de acciones */}
-                <Button onClick={() => handleUpdate(unidad.id)}  className="btn btn-warning" style={{ display: 'inline-block', marginRight: '10px' }}>Modificar</Button>
+                <Button onClick={() => handleUpdate(unidad.id, unidad)} className="btn btn-warning" style={{ display: 'inline-block', marginRight: '10px' }}>Modificar</Button>
                 <Button onClick={() => handleDelete(unidad.id)} className="btn btn-danger">Borrar</Button>
               </td>
             </tr>
@@ -118,14 +123,15 @@ const handleUpdate = async (id: number) => {
         </tbody>
       </Table>
 
+     
+
       {/* Renderiza el modal si showModal es true */}
       {showModal && (
         <ModalUnidadMedida
-        showModal={showModal}
-        handleClose={handleCloseModal}
-        createUnidadMedida={handleCreate}
-        unidadMedida={unidadMedida}
-      />
+          showModal={showModal}
+          handleClose={handleCloseModal}
+          createUnidadMedida={handleCreate}
+          unidadMedida={unidadMedida} unidadId={0} unidad={undefined}      />
       )}
     </>
   );

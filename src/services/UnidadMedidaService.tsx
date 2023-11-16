@@ -33,6 +33,7 @@ export const UnidadMedidaService = {
         });
 
         const data = await response.json();
+        console.log("se creo");
         return data;
         
     },
@@ -48,6 +49,7 @@ export const UnidadMedidaService = {
         });
 
         const data = await response.json();
+        console.log("se actualizo");
         return data;
     },
 
