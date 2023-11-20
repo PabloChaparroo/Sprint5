@@ -6,7 +6,10 @@ import { toast } from 'react-toastify';
 import { RubroArticuloInsumoService } from "../../services/RubroArticuloInsumo";
 import { ModalType } from "../../types/ModalType";
 import { RubroArticuloInsumo } from "../../types/RubroArticuloInsumo";
+<<<<<<< HEAD
 import { Calendar } from "react-bootstrap-icons";
+=======
+>>>>>>> 9a6edf1bf4345fefa6a140e799f0dc51c14b8667
 
 type RubroArticuloInsumoModalProps = {
   show: boolean;
@@ -67,6 +70,7 @@ const RubroArticuloInsumoModal: React.FC<RubroArticuloInsumoModalProps> = ({
       toast.error('Ha ocurrido un error');
     }
   };
+<<<<<<< HEAD
   const handleDelete = async () => {
     try {
       if (rubroArticuloInsumo) {
@@ -75,6 +79,20 @@ const RubroArticuloInsumoModal: React.FC<RubroArticuloInsumoModalProps> = ({
           position: "top-center",
         });
   
+=======
+
+  const handleDelete = async () => {
+    try {
+      // Actualizar la fecha de baja
+      if (rubroArticuloInsumo) {
+        rubroArticuloInsumo.fechaBaja = new Date();
+        await RubroArticuloInsumoService.updateRubroArticuloInsumo(rubroArticuloInsumo.id!, rubroArticuloInsumo);
+        toast.success("Rubro articulo insumo dado de baja con éxito", {
+          position: "top-center",
+        });
+  
+        // Resto del código para refrescar la lista de ingredientes, etc.
+>>>>>>> 9a6edf1bf4345fefa6a140e799f0dc51c14b8667
         onHide();
         refreshData(prevState => !prevState);
       }
@@ -84,12 +102,19 @@ const RubroArticuloInsumoModal: React.FC<RubroArticuloInsumoModalProps> = ({
     }
   };
   
+<<<<<<< HEAD
   
+=======
+>>>>>>> 9a6edf1bf4345fefa6a140e799f0dc51c14b8667
   const handleRestore = async () => {
     try {
       // Restaurar la fecha de baja a null
       if (rubroArticuloInsumo) {
+<<<<<<< HEAD
         rubroArticuloInsumo.fechaBaja = "";
+=======
+        rubroArticuloInsumo.fechaBaja = new Date(0);
+>>>>>>> 9a6edf1bf4345fefa6a140e799f0dc51c14b8667
         await RubroArticuloInsumoService.updateRubroArticuloInsumo(rubroArticuloInsumo.id!, rubroArticuloInsumo);
         toast.success("rubro articulo insumo restaurado con éxito", {
           position: "top-center",
