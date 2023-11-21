@@ -1,4 +1,3 @@
-
 import { CategoriaArticuloManufacturado } from "./CategoriaArticuloManufacturado";
 import { DetalleArticuloManufacturado } from "./DetalleArticuloManufacturado";
 

@@ -1,4 +1,5 @@
 export interface UnidadMedida {
+    
 id: number;
 denominacion: String;
 abreviatura: String;
