@@ -3,8 +3,9 @@ import { Domicilio } from "../types/Domicilio";
 const BASE_URL = 'https://elbuensabor-v1.onrender.com';
 
 export const DomicilioService = {
+
     getAllDomicilios: async (): Promise<Domicilio[]> => {
-        const response = await fetch(`${BASE_URL}/api/v1/domicilios/paged`);
+        const response = await fetch(`${BASE_URL}/api/v1/domicilios`); //Saque el /paged
         const data = await response.json();
         return data;
     },
