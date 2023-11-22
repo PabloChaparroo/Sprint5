@@ -45,7 +45,7 @@ const Header = () => {
                                 <NavDropdown.Item onClick={() => navigate('/unidadMedidas')}>
                                     Unidad de medida
                                 </NavDropdown.Item>
-                                <NavDropdown.Item onClick={() => navigate('/rubro')}>
+                                <NavDropdown.Item onClick={() => navigate('/rubroArticuloInsumo')}>
                                     Rubro
                                 </NavDropdown.Item>
                                 <NavDropdown.Item onClick={() => navigate('/administracion')}>

@@ -5,9 +5,10 @@ import Componentes from "../pages/Componentes"
 import Administracion from "../pages/Administracion"
 import Login from "../pages/Login"
 import Registro from "../pages/Registro"
-import RubroArticuloInsumoTable from "../components/RubroArticuloInsumo/RubroArticuloInsumo"
 import UnidadMedidaTable from "../pages/UnidadMedidaPage"
+import RubrosPage from '../pages/RubrosPage';
 
+const PrivateRoute = React.lazy(() => import('./PrivateRoute'));
 
 
 const AppRoutes: React.FC = () => {
@@ -17,10 +18,10 @@ const AppRoutes: React.FC = () => {
             <Route path="/" element={<HomePage/>}/>
             <Route path="/componentes" element={<Componentes/>}/>
             <Route path="/administracion" element={<Administracion/>}/>
-            <Route path="/rubro" element={<RubroArticuloInsumoTable/>}/>
+            <Route element={<PrivateRoute element={<RubrosPage />} />} path="/rubros" />
             <Route path="/unidadMedidas" element={<UnidadMedidaTable/>}/>
-            <Route path="/login" element={<Login/>}/>
-            <Route path="/registro" element={<Registro/>}/>
+            <Route element={<Login />} path="/login" />
+            <Route element={<Registro />} path="/registro" /> 
         </Routes>
     )
 

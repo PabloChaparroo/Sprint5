@@ -18,29 +18,29 @@ export const AuthService = {
         throw new Error('Inicio de sesión fallido');
       }
 
-      // Recuperar el token del cuerpo de la respuesta JSON
+      // Recuperar el token  del cuerpo de la respuesta JSON
       const { token } = await response.json();
 
       if (!token) {
         throw new Error('No se encontró el token en las cabeceras de la respuesta');
       }
 
-      // Almacena el token en localStorage
-      localStorage.setItem('token', token);
+      // Almacena el token en autData localStorage como un objeto
+      localStorage.setItem('authData', JSON.stringify( token ));
 
-      // Puedes también almacenar otros datos relacionados con la sesión si es necesario
-      // localStorage.setItem('username', loginRequest.username);
-
+    
+  
       // Devolver el token como un string
       return token;
 
     } catch (error) {
-      console.error('Error al iniciar sesión:', error);
+      console.error('Error al iniciar sesión desde el service');
       throw error; // Re-lanza el error para que pueda ser manejado por el código que llama a esta función
     }
   },
 
   register: async (registerRequest: RegisterRequest): Promise<string> => {
+
     try {
       const response = await fetch(`${BASE_URL}/auth/register`, {
         method: 'POST',
@@ -51,14 +51,28 @@ export const AuthService = {
       });
 
       if (!response.ok) {
-        throw new Error('Error en el registro');
+        throw new Error('Registro fallido');
       }
 
-      const data = await response.json();
-      return data; // Datos del usuario registrado (si el servidor devuelve algo)
+      // Recuperar el token y el rol del cuerpo de la respuesta JSON
+      const { token } = await response.json();
+
+      if (!token) {
+        throw new Error('No se encontró el token en las cabeceras de la respuesta');
+      }
+
+      // Almacena el token y el rol en localStorage como un objeto
+      localStorage.setItem('authData', JSON.stringify( token ));
+
+      // Puedes también almacenar otros datos relacionados con la sesión si es necesario
+      // localStorage.setItem('username', loginRequest.username);
+
+      // Devolver el token como un string
+      return token;
+
     } catch (error) {
-      console.error('Error al procesar el registro:', error);
-      throw error; // Manejar errores de conexión u otros
+      console.error('Error al registrar desde el service');
+      throw error; // Re-lanza el error para que pueda ser manejado por el código que llama a esta función
     }
-  },
+  }
 };

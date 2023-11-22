@@ -39,11 +39,11 @@ const FormLogin: React.FC = () => {
     },
   });
 
-      // Handlers
-  function onLogIn() {
-    window.localStorage.setItem('isLoggedIn', 'true');
-    navigate('/');
-  }
+  //     // Handlers
+  // function onLogIn() {
+  //   window.localStorage.setItem('isLoggedIn', 'true');
+  //   navigate('/');
+  // }
   
   return (
     <>
@@ -97,13 +97,6 @@ const FormLogin: React.FC = () => {
               Enviar
             </Button>
           </div>
-
-          <div >
-      <Button onClick={onLogIn}>  
-        Admin
-      </Button>
-      </div> 
-
         </Form>
       </Container>
     </>

@@ -5,13 +5,24 @@ const BASE_URL = 'http://localhost:8080/api';
 export const RubroArticuloInsumoService = {
 
     getRubroArticuloInsumo: async (): Promise<RubroArticuloInsumo[]> => {
-        const response = await fetch(`${BASE_URL}/v1/rubros`); 
+        const response = await fetch(`${BASE_URL}/v1/rubros`,{
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${JSON.parse(window.localStorage.getItem("authData")!)}`,
+            },  
+        }); 
+        
         const data = await response.json();
         return data;
     },
 
     getRubro: async (id: number): Promise<RubroArticuloInsumo> => {
-        const response = await fetch(`${BASE_URL}/v1/rubros/${id}`); 
+        const response = await fetch(`${BASE_URL}/v1/rubros/${id}`,{
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${JSON.parse(window.localStorage.getItem("authData")!)}`,
+            },
+        }); 
         const data = await response.json();
         return data;
     },
@@ -20,7 +31,9 @@ export const RubroArticuloInsumoService = {
         const response = await fetch(`${BASE_URL}/v1/rubros`, {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${JSON.parse(window.localStorage.getItem("authData")!)}`,
+
             },
             body: JSON.stringify(rubro)
         });
@@ -33,18 +46,23 @@ export const RubroArticuloInsumoService = {
         const response = await fetch(`${BASE_URL}/v1/rubros/${id}`, {
             method: "PUT",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${JSON.parse(window.localStorage.getItem("authData")!)}`,
+
             },
             body: JSON.stringify(rubro)
         });
-
         const data = await response.json();
         return data;
     },
 
     deleteRubroArticuloInsumo: async (id: number): Promise<void> => {
         await fetch(`${BASE_URL}/v1/rubros/${id}`, {
-            method: "DELETE"
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${JSON.parse(window.localStorage.getItem("authData")!)}`,
+            },
         });
     }
 }
