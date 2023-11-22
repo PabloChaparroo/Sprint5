@@ -1,6 +1,7 @@
 import { LoginRequest } from "../types/LoginRequest";
+import { RegisterRequest } from "../types/RegisterRequest";
 
-const BASE_URL = 'http://localhost:8080/';
+const BASE_URL = 'http://localhost:8080';
 
 export const AuthService = {
   login: async (loginRequest: LoginRequest): Promise<string> => {
@@ -39,14 +40,14 @@ export const AuthService = {
     }
   },
 
-  register: async (userData: any): Promise<any> => {
+  register: async (registerRequest: RegisterRequest): Promise<string> => {
     try {
       const response = await fetch(`${BASE_URL}/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(userData),
+        body: JSON.stringify(registerRequest),
       });
 
       if (!response.ok) {

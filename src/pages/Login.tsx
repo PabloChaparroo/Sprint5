@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from 'react';
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Form, Container, Button } from "react-bootstrap";
@@ -24,6 +24,7 @@ const FormLogin: React.FC = () => {
       
     },
 
+    
     validationSchema: validationSchema,
 
     onSubmit: async (values) => {
@@ -38,6 +39,12 @@ const FormLogin: React.FC = () => {
     },
   });
 
+      // Handlers
+  function onLogIn() {
+    window.localStorage.setItem('isLoggedIn', 'true');
+    navigate('/');
+  }
+  
   return (
     <>
       <Container
@@ -90,6 +97,13 @@ const FormLogin: React.FC = () => {
               Enviar
             </Button>
           </div>
+
+          <div >
+      <Button onClick={onLogIn}>  
+        Admin
+      </Button>
+      </div> 
+
         </Form>
       </Container>
     </>
