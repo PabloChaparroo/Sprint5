@@ -8,7 +8,12 @@ export const UnidadMedidaService = {
     
     getAllUnidadMedida: async (): Promise<UnidadMedida[]> => {
        
-        const response = await fetch(`${BASE_URL}/api/v1/unidadMedidas`);
+        const response = await fetch(`${BASE_URL}/api/v1/unidadMedidas`,{
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${JSON.parse(window.localStorage.getItem("authData")!)}`,
+            },  
+        });
         const data = await response.json();
         return data;
     },
@@ -16,7 +21,12 @@ export const UnidadMedidaService = {
     
     getUnidadMedida: async (id:number): Promise<UnidadMedida> => {
 
-        const response = await fetch (`${BASE_URL}/api/v1/unidadMedidas/${id}`);
+        const response = await fetch (`${BASE_URL}/api/v1/unidadMedidas/${id}`,{
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${JSON.parse(window.localStorage.getItem("authData")!)}`,
+            },  
+        });
         const data = await response.json();
         return data;
         
@@ -27,7 +37,8 @@ export const UnidadMedidaService = {
         const response = await fetch(`${BASE_URL}/api/v1/unidadMedidas`, {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${JSON.parse(window.localStorage.getItem("authData")!)}`,
             },
             body: JSON.stringify(unidadMedida)
         });
@@ -42,7 +53,8 @@ export const UnidadMedidaService = {
         const response = await fetch(`${BASE_URL}/api/v1/unidadMedidas/${id}`, {
             method: "PUT",
             headers: {
-                'Content-Type':'application/json'
+                'Content-Type':'application/json',
+                'Authorization': `Bearer ${JSON.parse(window.localStorage.getItem("authData")!)}`,
             },
             body: JSON.stringify(unidadMedida)
         });
@@ -55,7 +67,12 @@ export const UnidadMedidaService = {
 
     deleteUnidadMedida: async (id:number): Promise<void> => {
         await fetch(`${BASE_URL}/api/v1/unidadMedidas/${id}`, {
-            method: "DELETE"
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${JSON.parse(window.localStorage.getItem("authData")!)}`,
+            },
+        
         });
     }
     
