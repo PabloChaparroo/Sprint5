@@ -5,7 +5,7 @@ import Administracion from "../pages/Administracion"
 import Login from "../pages/Login"
 import Registro from "../pages/Registro"
 import RubroArticuloInsumoTable from "../components/RubroArticuloInsumo/RubroArticuloInsumo"
-
+import UnidadMedidaTable from "../pages/UnidadMedidaPage"
 const AppRoutes: React.FC = () => {
 
     return (
@@ -14,6 +14,7 @@ const AppRoutes: React.FC = () => {
             <Route path="/componentes" element={<Componentes/>}/>
             <Route path="/administracion" element={<Administracion/>}/>
             <Route path="/rubro" element={<RubroArticuloInsumoTable/>}/>
+            <Route path="/unidadMedidas" element={<UnidadMedidaTable/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/registro" element={<Registro/>}/>
         </Routes>

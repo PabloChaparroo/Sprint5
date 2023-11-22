@@ -42,7 +42,7 @@ const Header = () => {
                                 Carta
                             </Nav.Link>
                             <NavDropdown title="Administración" id="basic-nav-dropdown">
-                                <NavDropdown.Item onClick={() => navigate('/unidad-de-medida')}>
+                                <NavDropdown.Item onClick={() => navigate('/unidadMedidas')}>
                                     Unidad de medida
                                 </NavDropdown.Item>
                                 <NavDropdown.Item onClick={() => navigate('/rubro')}>
